@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Transform target;
-    void OnEnable(){
-        
+    //private Vector3 direction;
+    public void Start()
+    {
+        //this.direction = direction;
+
+        Destroy(gameObject, 5f);
     }
 
-    void Update(){
-        //transform.position 
+    void Update()
+    {
+        //transform.Translate(direction);   
+        transform.Translate(new Vector3(0,0,1));
+
     }
 }

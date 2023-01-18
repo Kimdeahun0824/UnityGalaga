@@ -6,10 +6,27 @@ public class EnemyGoei : MonoBehaviour, Enemy
 {
     private float timeAfterSpawn;
     public GameObject targetPosition;
+    public Transform player;
+    
+    private float timeAfterFire;
+    public float fireRateMin = 0.5f;
+    public float fireRateMax = 2.5f;
+    private float fireRate;
     
     public void Attack()
     {
+        timeAfterFire = timeAfterFire +Time.deltaTime;
         
+        if(timeAfterFire>=fireRate){
+            timeAfterFire=0;
+
+            GameObject bullet = ObjectPoolManager.Instance.ObjPop();
+            bullet.SetActive(true);
+            bullet.transform.position=this.transform.position;
+            bullet.transform.LookAt(player);
+            fireRate = Random.Range(fireRateMin,fireRateMax);
+        }
+
     }
 
     public void Die()
@@ -43,12 +60,16 @@ public class EnemyGoei : MonoBehaviour, Enemy
         
         int random = Random.Range(-15,15);
         transform.position = new Vector3(random, 0, 28);
+
+        timeAfterFire=0;
+        fireRate = Random.Range(fireRateMin,fireRateMax);
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+        Attack();
     }
 
     

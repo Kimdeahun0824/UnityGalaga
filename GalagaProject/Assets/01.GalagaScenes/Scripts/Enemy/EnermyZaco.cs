@@ -6,16 +6,29 @@ public class EnermyZaco : MonoBehaviour, Enemy
 {
     private float timeAfterSpawn;
     public GameObject targetPosition;
+    public Transform player;
+    //public GameObject bulletPrefab;
     public float speed = 0f;
+
+    private float timeAfterFire;
+    public float fireRateMin = 0.5f;
+    public float fireRateMax = 2.5f;
+    private float fireRate;
     
     public void Attack()
     {
-        timeAfterSpawn = timeAfterSpawn +Time.deltaTime;
-        if(timeAfterSpawn%2==1){
-            
-        ObjectPoolManager.Instance.ObjPop();
+        timeAfterFire = timeAfterFire +Time.deltaTime;
         
+        if(timeAfterFire>=fireRate){
+            timeAfterFire=0;
+
+            GameObject bullet =ObjectPoolManager.Instance.ObjPop();
+            bullet.SetActive(true);
+            bullet.transform.position=this.transform.position;
+            bullet.transform.LookAt(player);
+            fireRate = Random.Range(fireRateMin,fireRateMax);
         }
+
     }
 
     public void Die()
@@ -66,12 +79,14 @@ public class EnermyZaco : MonoBehaviour, Enemy
         //gameObject.SetActive(true);
         int random = Random.Range(-15,15);
         transform.position = new Vector3(random, 0, 28);
+
+        timeAfterFire=0;
+        fireRate = Random.Range(fireRateMin,fireRateMax);
     }
 
     void Update()
     {
         Move();
-        //this.transform.LookAt(player);
         Attack();
     }
 
