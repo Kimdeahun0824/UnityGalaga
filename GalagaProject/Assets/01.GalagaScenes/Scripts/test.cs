@@ -16,7 +16,6 @@ public class test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Equals(zaco);
         
         this.transform.LookAt(player);
     }
