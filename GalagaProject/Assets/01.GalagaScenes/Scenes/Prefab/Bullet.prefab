@@ -9,7 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3355713812145735003}
+<<<<<<< HEAD:GalagaProject/Assets/01.GalagaScenes/Prefab/Bullet.prefab
   - component: {fileID: 5938783564464654430}
+=======
+  - component: {fileID: 645105991638147804}
+>>>>>>> 4ca20fffd53bb79447218867a502ad9c6face9b6:GalagaProject/Assets/01.GalagaScenes/Scenes/Prefab/Bullet.prefab
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -33,7 +37,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:GalagaProject/Assets/01.GalagaScenes/Prefab/Bullet.prefab
 --- !u!114 &5938783564464654430
+=======
+--- !u!114 &645105991638147804
+>>>>>>> 4ca20fffd53bb79447218867a502ad9c6face9b6:GalagaProject/Assets/01.GalagaScenes/Scenes/Prefab/Bullet.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,9 +50,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3808094738193373541}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:GalagaProject/Assets/01.GalagaScenes/Prefab/Bullet.prefab
   m_Script: {fileID: 11500000, guid: 1d89385132453944999441434860d511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+  m_Script: {fileID: 11500000, guid: 41e097fd2e743fc49a1f38ed78a769d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 7480163065503860604, guid: 8936a9405f066224b973b3577ced2294, type: 3}
+  speed: 8
+>>>>>>> 4ca20fffd53bb79447218867a502ad9c6face9b6:GalagaProject/Assets/01.GalagaScenes/Scenes/Prefab/Bullet.prefab
 --- !u!1 &8730038802922138146
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 8730038802922138146}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3355713812145735003}
