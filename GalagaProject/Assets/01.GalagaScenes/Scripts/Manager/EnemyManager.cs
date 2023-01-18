@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public GameObject[] Enemys;
     private static EnemyManager myInstance = null;
     public static EnemyManager Instance
     {
@@ -19,6 +20,10 @@ public class EnemyManager : MonoBehaviour
             }
         }
     }
+
+    public float EnemySpawnRate;
+    private float currentSpawnTimer;
+
     void Awake()
     {
         if (myInstance == null)
@@ -32,13 +37,28 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        if (currentSpawnTimer < EnemySpawnRate)
+        {
+            currentSpawnTimer = 0;
+            EnemySpawn();
+        }
+        else
+        {
+            currentSpawnTimer += Time.deltaTime;
+        }
+    }
+    public void EnemySpawn()
+    {
+        
+    }
+
+    public void EnemyGoeiSpawn()
     {
 
     }
-
-    public void EnemySpawn(string name)
+    public void EnemyZacoSpawn()
     {
 
     }
