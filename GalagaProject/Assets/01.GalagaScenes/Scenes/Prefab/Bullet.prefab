@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3355713812145735003}
+  - component: {fileID: 645105991638147804}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &645105991638147804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808094738193373541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e097fd2e743fc49a1f38ed78a769d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 7480163065503860604, guid: 8936a9405f066224b973b3577ced2294, type: 3}
+  speed: 8
 --- !u!1 &8730038802922138146
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 8730038802922138146}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3355713812145735003}

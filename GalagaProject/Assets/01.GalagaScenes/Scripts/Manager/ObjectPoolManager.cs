@@ -49,6 +49,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     }
 
+    
     public GameObject ObjPop()
     {
         return PrefabPool.Pop();
