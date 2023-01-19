@@ -24,7 +24,6 @@ public static class Utility
         }
         else
         {
-            Debug.Log(resultObj.name);
             return resultObj;
         }
     }

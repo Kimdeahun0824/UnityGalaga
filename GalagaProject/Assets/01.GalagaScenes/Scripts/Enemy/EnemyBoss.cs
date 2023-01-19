@@ -42,4 +42,9 @@ public class EnemyBoss : MonoBehaviour, Enemy
     {
         
     }
+
+    public void SetTarget(Transform target_)
+    {
+
+    }
 }

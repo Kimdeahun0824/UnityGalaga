@@ -17,12 +17,10 @@ public class ObjectPoolManager : MonoBehaviour
         }
     }
 
-    private Stack<GameObject> PlayerBulletPool;
-    private Stack<GameObject> EnemyBulletPool;
-    public GameObject PlayerBulletPrefab;
-    public GameObject EnemyBulletPrefab;
-    public int PlayerBulletCount;
-    public int EnemyBulletCount;
+    private Stack<GameObject> BulletPool;
+    public GameObject BulletPrefab;
+    public int BulletCount;
+
 
     void Awake()
     {
@@ -36,54 +34,43 @@ public class ObjectPoolManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        PlayerBulletPool = new Stack<GameObject>();
-        for (int i = 0; i < PlayerBulletCount; i++)
+        BulletPool = new Stack<GameObject>();
+        for (int i = 0; i < BulletCount; i++)
         {
-            GameObject object_ = Instantiate(PlayerBulletPrefab);
+            GameObject object_ = Instantiate(BulletPrefab);
             object_.transform.parent = gameObject.transform;
             object_.transform.position = Vector3.zero;
             object_.SetActive(false);
-            PlayerBulletPool.Push(object_);
-        }
-
-        EnemyBulletPool = new Stack<GameObject>();
-        for (int i = 0; i < EnemyBulletCount; i++)
-        {
-            GameObject object_ = Instantiate(EnemyBulletPrefab);
-            object_.transform.parent = gameObject.transform;
-            object_.transform.position = Vector3.zero;
-            object_.SetActive(false);
-            EnemyBulletPool.Push(object_);
+            BulletPool.Push(object_);
         }
     }
-
-    void Update()
-    {
-
-    }
-
 
     public GameObject PlayerBulletPop()
     {
-        return PlayerBulletPool.Pop();
-    }
-
-    public void PlayerBulletPush(GameObject obj_)
-    {
-        obj_.transform.position = Vector3.zero;
-        obj_.SetActive(false);
-        PlayerBulletPool.Push(obj_);
+        GameObject bullet = BulletPool.Pop();
+        bullet.tag = "PlayerBullet";
+        return bullet;
     }
 
     public GameObject EnemyBulletPop()
     {
-        return EnemyBulletPool.Pop();
+        GameObject bullet = BulletPool.Pop();
+        bullet.tag = "EnemyBullet";
+        return bullet;
     }
 
-    public void EnemyBulletPush(GameObject obj_)
+    public void BulletPush(GameObject obj_)
     {
         obj_.transform.position = Vector3.zero;
         obj_.SetActive(false);
-        EnemyBulletPool.Push(obj_);
+        BulletPool.Push(obj_);
+    }
+
+    public void SceneReload()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            BulletPush(transform.GetChild(i).gameObject);
+        }
     }
 }

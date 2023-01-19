@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyZaco : MonoBehaviour, Enemy
 {
     private float timeAfterSpawn;
-    public GameObject targetPosition;
+    public Transform targetPosition;
     public Transform player;
     public float speed = 0f;
 
@@ -13,25 +13,28 @@ public class EnemyZaco : MonoBehaviour, Enemy
     public float fireRateMin = 0.5f;
     public float fireRateMax = 2.5f;
     private float fireRate;
-    
+
     public void Attack()
     {
-        timeAfterFire = timeAfterFire +Time.deltaTime;
-        
-        if(timeAfterFire>=fireRate){
-            timeAfterFire=0;
+        timeAfterFire = timeAfterFire + Time.deltaTime;
+
+        if (timeAfterFire >= fireRate)
+        {
+            timeAfterFire = 0;
 
             GameObject bullet = ObjectPoolManager.Instance.EnemyBulletPop();
             bullet.SetActive(true);
             bullet.transform.position = this.transform.position;
             bullet.transform.LookAt(player);
-            fireRate = Random.Range(fireRateMin,fireRateMax);
+            fireRate = Random.Range(fireRateMin, fireRateMax);
         }
 
     }
 
     public void Die()
     {
+        UIManager.Instance.ScoreAdd(50);
+        EnemyManager.Instance.PointPush(targetPosition.gameObject);
         Destroy(gameObject);
     }
 
@@ -68,7 +71,7 @@ public class EnemyZaco : MonoBehaviour, Enemy
         else
         {
             transform.position =
-           Vector3.MoveTowards(gameObject.transform.position, targetPosition.transform.position, 20 * Time.deltaTime);
+           Vector3.MoveTowards(gameObject.transform.position, targetPosition.position, 20 * Time.deltaTime);
         }
 
 
@@ -77,11 +80,11 @@ public class EnemyZaco : MonoBehaviour, Enemy
     void Start()
     {
         //gameObject.SetActive(true);
-        int random = Random.Range(-15, 15);
+        int random = Random.Range(-14, 14);
         transform.position = new Vector3(random, 0, 28);
 
-        timeAfterFire=0;
-        fireRate = Random.Range(fireRateMin,fireRateMax);
+        timeAfterFire = 0;
+        fireRate = Random.Range(fireRateMin, fireRateMax);
 
     }
 
@@ -91,17 +94,18 @@ public class EnemyZaco : MonoBehaviour, Enemy
         Attack();
     }
 
-
-    public void SetTargetPosition(GameObject obj_){
-        targetPosition = obj_;
-
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Bullet : {other.name},{other.tag}");
+        if (other.tag.Equals("PlayerBullet"))
+        {
+            
+            Die();
+        }
     }
 
-    void OnTriggerEnter(Collider other){ 
-
-        Debug.Log("sadsadas");
-        if(other.tag.Equals("PlayerBullet")){
-            Die();
-        } 
+    public void SetTarget(Transform target_)
+    {
+        targetPosition = target_;
     }
 }

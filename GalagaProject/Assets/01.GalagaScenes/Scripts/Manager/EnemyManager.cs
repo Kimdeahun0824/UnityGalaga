@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public enum EnemyTypes{
-        ZACO,GOEI,
-    }
-    public GameObject[] Enemys;
     private static EnemyManager myInstance = null;
     public static EnemyManager Instance
     {
@@ -24,8 +20,12 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public GameObject[] Enemys;
     public float EnemySpawnRate;
-    private float currentSpawnTimer;
+    
+    private bool IsSpawn;
+
+    private Stack<GameObject> enemyPoint;
 
     void Awake()
     {
@@ -38,33 +38,36 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        IsSpawn = true;
+        enemyPoint = new Stack<GameObject>();
+        Transform[] objs = Utility.RootGameObjectFind("Field").GetComponentsInChildren<Transform>();
+        foreach(var obj in objs){
+            if(obj.name == "Field")continue;
+            enemyPoint.Push(obj.gameObject);
+        }
     }
 
     void Update()
     {
-        if (currentSpawnTimer > EnemySpawnRate)
+        if (IsSpawn)
         {
-            currentSpawnTimer = 0;
-            EnemySpawn();
-        }
-        else
-        {
-            currentSpawnTimer += Time.deltaTime;
+            IsSpawn = false;
+            int randNum = Random.RandomRange(0, Enemys.Length);
+            Instantiate(Enemys[randNum]).GetComponent<Enemy>().SetTarget(enemyPoint.Pop().transform);
+            StartCoroutine("Enemyspawn");
         }
     }
-    public void EnemySpawn()
+    IEnumerator Enemyspawn()
     {
-        //int randNum = Random.RandomRange(0,Enemys.Length);
-        Instantiate(Enemys[0]);
-
+        yield return new WaitForSeconds(EnemySpawnRate);
+        IsSpawn = true;
     }
 
-    public void EnemyGoeiSpawn()
-    {
-        
+    public void PointPush(GameObject obj_){
+        enemyPoint.Push(obj_);
     }
-    public void EnemyZacoSpawn()
-    {
 
-    }
+
+
+
 }

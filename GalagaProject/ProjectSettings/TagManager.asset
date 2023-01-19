@@ -4,16 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cube
   - Enemy
-<<<<<<< HEAD
-  - PlayerBullet
-  - EnermyBullet
-  - Bullet
-=======
   - EnemyBullet
   - PlayerBullet
->>>>>>> origin/dhKim
+  - EnermyBullet
   layers:
   - Default
   - TransparentFX
