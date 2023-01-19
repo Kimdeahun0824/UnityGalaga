@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
    public Rigidbody playerRigidBody = default;
    public int player_life = 3;
     private float player_speed = 10f;
+    public float max_delay;
+    public float cur_delay;
     // Start is called before the first frame update
     Bullet FireBullet;
     void Start()
@@ -24,12 +26,21 @@ public class PlayerController : MonoBehaviour
     
     void Shoot()
     {
+        
         if(Input.GetKey(KeyCode.Space)){
+            if(cur_delay < max_delay){
+            return;
+            }
             GameObject tempbullet = ObjectPoolManager.Instance.ObjPop();
             tempbullet.transform.position = transform.position;
-            tempbullet.SetActive(true);
-            
+            tempbullet.transform.rotation = transform.rotation;
+            tempbullet.SetActive(true);  
+            cur_delay = 0;
         }
+        
+    }
+    void DelayShoot(){
+        cur_delay = cur_delay + Time.deltaTime;
     }
     // 플레이어 움직이는함수.
     void Move(){
@@ -73,6 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Shoot();
+        DelayShoot();
     }
 
     // 플레이어가 죽으면 생명이 깎인다.

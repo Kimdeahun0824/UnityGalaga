@@ -6,9 +6,9 @@ public class Bullet : MonoBehaviour
 {
     public GameObject Player;
     public float speed = 8.0f;
-    
+   
     void OnEnable(){
-        
+    
     }
 
     void OnTriggerEnter(Collider other){
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     }
     void Update(){
         // z축으로 계속 더해서 간다.
-        transform.localPosition += Vector3.forward * speed * Time.deltaTime;
+        transform.position += transform.forward * speed * Time.deltaTime;
         //if(gameObject.)
     }
 }
