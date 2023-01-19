@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
    public int player_life = 3;
     private float player_speed = 10f;
     // Start is called before the first frame update
-    Bullet FireBullet;
+    //Bullet FireBullet;
     void Start()
     {
         playerRigidBody = gameObject.GetComponent<Rigidbody>();
@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
     }
 
     // Enemy와 충돌하면 Die 함수 호출
-    void OnTriggerEnter(Collider other){ 
-        if(other.tag.Equals("Enemy")){
-            Die();
-        } 
-    }
+        void OnTriggerEnter(Collider other){ 
+            if(other.tag.Equals("Enemy")||other.tag.Equals("Bullet")){
+                Die();
+            } 
+        }
     
     void Shoot()
     {

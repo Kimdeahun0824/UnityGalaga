@@ -29,6 +29,12 @@ public class EnemyGoei : MonoBehaviour, Enemy
 
     }
 
+    void OnTriggerEnter(Collider other){ 
+        if(other.tag.Equals("Bullet")){
+            Die();
+        } 
+    }
+
     public void Die()
     {
         Destroy(gameObject);
@@ -56,10 +62,10 @@ public class EnemyGoei : MonoBehaviour, Enemy
 
     void Start()
     {
-        
+        //임시
         int random = Random.Range(-15,15);
         transform.position = new Vector3(random, 0, 28);
-
+        //
         timeAfterFire=0;
         fireRate = Random.Range(fireRateMin,fireRateMax);
     }

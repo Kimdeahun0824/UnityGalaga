@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnermyZaco : MonoBehaviour, Enemy
+public class EnemyZaco : MonoBehaviour, Enemy
 {
     private float timeAfterSpawn;
     public GameObject targetPosition;
     public Transform player;
-    //public GameObject bulletPrefab;
     public float speed = 0f;
 
     private float timeAfterFire;
@@ -85,6 +84,10 @@ public class EnermyZaco : MonoBehaviour, Enemy
     {
         Move();
         Attack();
+    }
+
+    public void SettargetPosition(GameObject obj){
+        
     }
 
 }
