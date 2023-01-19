@@ -65,9 +65,13 @@ public class EnemyGoei : MonoBehaviour, Enemy
         //임시
         int random = Random.Range(-15,15);
         transform.position = new Vector3(random, 0, 28);
+<<<<<<< HEAD
         //
         timeAfterFire=0;
         fireRate = Random.Range(fireRateMin,fireRateMax);
+=======
+        targetPosition = Utility.FindChildObject(Utility.RootGameObjectFind("Field"), "Point0");
+>>>>>>> origin/dhKim
     }
 
     void Update()

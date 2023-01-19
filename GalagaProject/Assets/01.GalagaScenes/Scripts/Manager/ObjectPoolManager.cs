@@ -17,9 +17,12 @@ public class ObjectPoolManager : MonoBehaviour
         }
     }
 
-    private Stack<GameObject> PrefabPool;
-    public GameObject Prefab;
-    public int PrefabCount;
+    private Stack<GameObject> PlayerBulletPool;
+    private Stack<GameObject> EnemyBulletPool;
+    public GameObject PlayerBulletPrefab;
+    public GameObject EnemyBulletPrefab;
+    public int PlayerBulletCount;
+    public int EnemyBulletCount;
 
     void Awake()
     {
@@ -33,14 +36,24 @@ public class ObjectPoolManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        PrefabPool = new Stack<GameObject>();
-        for (int i = 0; i < PrefabCount; i++)
+        PlayerBulletPool = new Stack<GameObject>();
+        for (int i = 0; i < PlayerBulletCount; i++)
         {
-            GameObject object_ = Instantiate(Prefab);
+            GameObject object_ = Instantiate(PlayerBulletPrefab);
             object_.transform.parent = gameObject.transform;
             object_.transform.position = Vector3.zero;
             object_.SetActive(false);
-            PrefabPool.Push(object_);
+            PlayerBulletPool.Push(object_);
+        }
+
+        EnemyBulletPool = new Stack<GameObject>();
+        for (int i = 0; i < EnemyBulletCount; i++)
+        {
+            GameObject object_ = Instantiate(EnemyBulletPrefab);
+            object_.transform.parent = gameObject.transform;
+            object_.transform.position = Vector3.zero;
+            object_.SetActive(false);
+            EnemyBulletPool.Push(object_);
         }
     }
 
@@ -49,16 +62,28 @@ public class ObjectPoolManager : MonoBehaviour
 
     }
 
-    
-    public GameObject ObjPop()
+
+    public GameObject PlayerBulletPop()
     {
-        return PrefabPool.Pop();
+        return PlayerBulletPool.Pop();
     }
 
-    public void ObjPush(GameObject obj)
+    public void PlayerBulletPush(GameObject obj_)
     {
-        obj.transform.position = Vector3.zero;
-        obj.SetActive(false);
-        PrefabPool.Push(obj);
+        obj_.transform.position = Vector3.zero;
+        obj_.SetActive(false);
+        PlayerBulletPool.Push(obj_);
+    }
+
+    public GameObject EnemyBulletPop()
+    {
+        return EnemyBulletPool.Pop();
+    }
+
+    public void EnemyBulletPush(GameObject obj_)
+    {
+        obj_.transform.position = Vector3.zero;
+        obj_.SetActive(false);
+        EnemyBulletPool.Push(obj_);
     }
 }

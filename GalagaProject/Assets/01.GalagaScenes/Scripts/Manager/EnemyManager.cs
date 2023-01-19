@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public enum EnemyTypes{
+        ZACO,GOEI,
+    }
     public GameObject[] Enemys;
     private static EnemyManager myInstance = null;
     public static EnemyManager Instance
@@ -39,7 +42,7 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-        if (currentSpawnTimer < EnemySpawnRate)
+        if (currentSpawnTimer > EnemySpawnRate)
         {
             currentSpawnTimer = 0;
             EnemySpawn();
@@ -51,12 +54,14 @@ public class EnemyManager : MonoBehaviour
     }
     public void EnemySpawn()
     {
-        
+        //int randNum = Random.RandomRange(0,Enemys.Length);
+        Instantiate(Enemys[0]);
+
     }
 
     public void EnemyGoeiSpawn()
     {
-
+        
     }
     public void EnemyZacoSpawn()
     {
