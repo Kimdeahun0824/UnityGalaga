@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour
    public Rigidbody playerRigidBody = default;
    public int player_life = 3;
     private float player_speed = 10f;
+<<<<<<< HEAD
+=======
+    public float max_delay;
+    public float cur_delay;
+>>>>>>> parent of 955b402 (플레이어끝)
     // Start is called before the first frame update
     //Bullet FireBullet;
     void Start()
@@ -73,6 +78,10 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Shoot();
+<<<<<<< HEAD
+=======
+        DelayShoot();
+>>>>>>> parent of 955b402 (플레이어끝)
     }
 
     // 플레이어가 죽으면 생명이 깎인다.
