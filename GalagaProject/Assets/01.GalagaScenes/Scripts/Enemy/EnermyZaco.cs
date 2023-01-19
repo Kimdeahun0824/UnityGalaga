@@ -22,9 +22,9 @@ public class EnermyZaco : MonoBehaviour, Enemy
         if(timeAfterFire>=fireRate){
             timeAfterFire=0;
 
-            GameObject bullet =ObjectPoolManager.Instance.ObjPop();
+            GameObject bullet = ObjectPoolManager.Instance.ObjPop();
             bullet.SetActive(true);
-            bullet.transform.position=this.transform.position;
+            bullet.transform.position = this.transform.position;
             bullet.transform.LookAt(player);
             fireRate = Random.Range(fireRateMin,fireRateMax);
         }
@@ -68,9 +68,6 @@ public class EnermyZaco : MonoBehaviour, Enemy
             Vector3.MoveTowards(gameObject.transform.position, targetPosition.transform.position , 20*Time.deltaTime);
         }
 
-        //if(transform.position.z <= -13){
-        //    OutBoard();
-        //}
 
     }
 
@@ -90,8 +87,4 @@ public class EnermyZaco : MonoBehaviour, Enemy
         Attack();
     }
 
-    /* public void OutBoard(){
-        gameObject.SetActive(false);
-
-    } */
 }

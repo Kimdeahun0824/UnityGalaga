@@ -112,3 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
   player: {fileID: 0}
+  speed: 0
+  fireRateMin: 0.5
+  fireRateMax: 2.5
