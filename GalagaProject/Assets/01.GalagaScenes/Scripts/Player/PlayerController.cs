@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     // Enemy와 충돌하면 Die 함수 호출
         void OnTriggerEnter(Collider other){ 
-            if(other.tag.Equals("Enemy")||other.tag.Equals("Bullet")){
+            if(other.tag.Equals("Enemy")||other.tag.Equals("EnemyBullet")){
                 Die();
             } 
         }
