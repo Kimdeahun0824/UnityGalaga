@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6125912289894433726}
   - component: {fileID: 6125912289894433722}
   m_Layer: 0
-  m_Name: Zaco1
+  m_Name: Zaco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
-  player: {fileID: 0}
+  speed: 20

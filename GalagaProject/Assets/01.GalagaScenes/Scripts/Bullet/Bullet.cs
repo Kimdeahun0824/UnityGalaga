@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.tag.Equals("Player")){
-            ObjectPoolManager.Instance.ObjPush(gameObject);
+            ObjectPoolManager.Instance.PlayerBulletPush(gameObject);
         }
     }
     void Update(){

@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         if(Input.GetKey(KeyCode.Space)){
-            GameObject tempbullet = ObjectPoolManager.Instance.ObjPop();
+            GameObject tempbullet = ObjectPoolManager.Instance.PlayerBulletPop();
             tempbullet.transform.position = transform.position;
             tempbullet.SetActive(true);
             

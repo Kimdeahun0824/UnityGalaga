@@ -42,6 +42,7 @@ public class EnemyGoei : MonoBehaviour, Enemy
         
         int random = Random.Range(-15,15);
         transform.position = new Vector3(random, 0, 28);
+        targetPosition = Utility.FindChildObject(Utility.RootGameObjectFind("Field"), "Point0");
     }
 
     void Update()
