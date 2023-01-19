@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3893190393337069333
+--- !u!1 &6125912289894433713
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3893190393337069330}
-  - component: {fileID: 3893190393337069329}
-  - component: {fileID: 3893190393337069328}
-  - component: {fileID: 3893190393337069335}
-  - component: {fileID: 3893190393337069334}
-  - component: {fileID: -5845573487227159347}
+  - component: {fileID: 6125912289894433725}
+  - component: {fileID: 6125912289894433724}
+  - component: {fileID: 6125912289894433727}
+  - component: {fileID: 6125912289894433726}
+  - component: {fileID: 6125912289894433722}
   m_Layer: 0
   m_Name: Zaco
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3893190393337069330
+--- !u!4 &6125912289894433725
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893190393337069333}
+  m_GameObject: {fileID: 6125912289894433713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15, y: 0, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,21 +35,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3893190393337069329
+--- !u!33 &6125912289894433724
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893190393337069333}
+  m_GameObject: {fileID: 6125912289894433713}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3893190393337069328
+--- !u!23 &6125912289894433727
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893190393337069333}
+  m_GameObject: {fileID: 6125912289894433713}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,49 +85,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3893190393337069335
+--- !u!65 &6125912289894433726
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893190393337069333}
+  m_GameObject: {fileID: 6125912289894433713}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3893190393337069334
+--- !u!114 &6125912289894433722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893190393337069333}
+  m_GameObject: {fileID: 6125912289894433713}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06aadbebb8b032142b59f7b7cb0cc43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
+<<<<<<< HEAD:GalagaProject/Assets/01.GalagaScenes/Prefab/Zaco1.prefab
   player: {fileID: 0}
-  speed: 10
+  speed: 0
   fireRateMin: 0.5
   fireRateMax: 2.5
---- !u!54 &-5845573487227159347
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893190393337069333}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+=======
+  speed: 20
+>>>>>>> origin/dhKim:GalagaProject/Assets/01.GalagaScenes/Prefab/Enemy/Zaco.prefab

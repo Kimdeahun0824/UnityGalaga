@@ -6,9 +6,9 @@ public class Bullet : MonoBehaviour
 {
     public GameObject Player;
     public float speed = 8.0f;
-   
-    void OnEnable(){
     
+    void OnEnable(){
+        
     }
 
     void OnTriggerEnter(Collider other){

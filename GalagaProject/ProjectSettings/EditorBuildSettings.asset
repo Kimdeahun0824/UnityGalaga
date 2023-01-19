@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/01.GalagaScenes/Scenes/first.unity
-    guid: 5f21acf239c93c94ab56cb49c11d67a0
+  m_Scenes: []
   m_configObjects: {}
