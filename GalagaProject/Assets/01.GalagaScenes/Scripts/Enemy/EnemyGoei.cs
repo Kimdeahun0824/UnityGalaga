@@ -20,7 +20,7 @@ public class EnemyGoei : MonoBehaviour, Enemy
         if(timeAfterFire>=fireRate){
             timeAfterFire=0;
 
-            GameObject bullet = ObjectPoolManager.Instance.EnemyBulletPop();
+            GameObject bullet = ObjectPoolManager.Instance.ObjPop();
             bullet.SetActive(true);
             bullet.transform.position=this.transform.position;
             bullet.transform.LookAt(player);
@@ -30,9 +30,7 @@ public class EnemyGoei : MonoBehaviour, Enemy
     }
 
     void OnTriggerEnter(Collider other){ 
-
-        Debug.Log("sadsadas");
-        if(other.tag.Equals("PlayerBullet")){
+        if(other.tag.Equals("Bullet")){
             Die();
         } 
     }
@@ -67,10 +65,13 @@ public class EnemyGoei : MonoBehaviour, Enemy
         //임시
         int random = Random.Range(-15,15);
         transform.position = new Vector3(random, 0, 28);
-
+<<<<<<< HEAD
+        //
         timeAfterFire=0;
         fireRate = Random.Range(fireRateMin,fireRateMax);
-
+=======
+        targetPosition = Utility.FindChildObject(Utility.RootGameObjectFind("Field"), "Point0");
+>>>>>>> origin/dhKim
     }
 
     void Update()
