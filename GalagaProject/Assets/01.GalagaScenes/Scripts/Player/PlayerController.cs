@@ -45,12 +45,14 @@ public class PlayerController : MonoBehaviour
 
             //딜레이 시간을 채우고 나면 총알 발사
 
-            //bullet을 pop하면서 tag - player설정
+            //PlayerBulletPop함수 실행 (bullet을 pop하면서 tag - player설정)
             GameObject tempbullet = ObjectPoolManager.Instance.PlayerBulletPop();
 
+            //pop 한 bullet을 player 위치에 생성되도록 세팅후 활성화
             tempbullet.transform.position = transform.position;
             tempbullet.transform.rotation = transform.rotation;
             tempbullet.SetActive(true);
+
             //딜레이 체크 시간 초기화
             cur_delay = 0;
         }
@@ -60,20 +62,25 @@ public class PlayerController : MonoBehaviour
     {
         cur_delay = cur_delay + Time.deltaTime;
     }
+
+
     // 플레이어 움직이는함수.
     void Move()
     {
 
+        //x,z축 input 설정
         float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
+        //이동 속도 설정(기본 player speed 10f, public으로 세팅, inspector에서 조정 가능하도록)
         float xSpeed = xInput * player_speed;
         float zSpeed = zInput * player_speed;
-
         Vector3 playerVelo = new Vector3(xSpeed, 0f, zSpeed);
 
         playerRigidBody.velocity = playerVelo;
 
+
+        //{스크린 밖으로 나가지 않도록 설정
         if (playerRigidBody.position.x >= 13)
         {
             playerRigidBody.position = new Vector3(13, 0, playerRigidBody.position.z);
@@ -106,6 +113,7 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+        //}스크린 밖으로 나가지 않도록 설정
 
     }
     void Update()
