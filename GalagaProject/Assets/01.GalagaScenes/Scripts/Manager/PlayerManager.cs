@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    public GameObject player;
+    private GameObject player;
     void Awake()
     {
         if (myInstance == null)
@@ -32,6 +32,8 @@ public class PlayerManager : MonoBehaviour
         {
             //Destroy(this.gameObject);
         }
+
+        //scene에서 Player를 찾아 선언한 palyer Gameoject에 입력
         player = Utility.RootGameObjectFind("Player");
     }
 
@@ -43,24 +45,33 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
     }
+    
+    //총알에 피격시 실행할 함수 - 1
     public void Dead()
     {
-        Debug.Log("ddsad");
         player.SetActive(false);
     }
+
+    //총알에 피격시 실행할 함수 - 2
+    public void RespawnPlayer()
+    {
+        Invoke("RespawnPlayerexe", 2f);
+    }
+    
+    //총알에 피격시 실행할 함수 - 2-1
     public void RespawnPlayerexe()
     {
         player.transform.position = new Vector3(0, 0, -20);
         player.SetActive(true);
     }
-    public void RespawnPlayer()
-    {
-        Invoke("RespawnPlayerexe", 2f);
-    }
-    public void SetPlayer()
+    //player obj 비활성화 후 리스폰 위치 재설정(0,0,-20), 2초 delay 이하 obj활성
+
+    
+
+    /* public void SetPlayer()
     {
         player = Utility.RootGameObjectFind("Player");
-    }
+    } */
 
 
 }

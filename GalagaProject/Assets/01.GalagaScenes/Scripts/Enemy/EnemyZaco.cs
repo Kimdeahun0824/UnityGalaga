@@ -86,6 +86,8 @@ public class EnemyZaco : MonoBehaviour, Enemy
         timeAfterFire = 0;
         fireRate = Random.Range(fireRateMin, fireRateMax);
 
+        player = Utility.RootGameObjectFind("Player").transform;
+
     }
 
     void Update()
