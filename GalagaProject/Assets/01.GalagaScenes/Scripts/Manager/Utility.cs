@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public static class Utility
 {
+    //inspector에서 일일히 끌어다 쓰지 않고 스크립트 내에서 obj 설정하기위해
+    
     // 최상위 Hireachy에서 오브젝트를 찾는 함수
     public static GameObject RootGameObjectFind(string objName_)
     {

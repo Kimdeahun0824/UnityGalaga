@@ -6,7 +6,37 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class UIManager : MonoBehaviour
 {
+    //{변수 설정
+    private Scene currentScene;
+    public TMP_Text ScoreText;
+    public Image[] lifeImage;
+    public GameObject gameOver;
+    private int score;
+    //}변수 설정
+
+    //싱글턴 인스턴스 할당 변수(private)
     private static UIManager myInstance = null;
+
+
+    void Awake()
+    {
+        //싱글턴 구성(비었으면 할당, 비어있지 않으면 파괴)
+        if (myInstance == null)
+        {
+            myInstance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        gameOver.SetActive(false);
+        
+        //현재 씬 할당(but 씬 이동x)
+        currentScene = SceneManager.GetActiveScene();
+    }
+    
+    //{외부에서 사용할 때 가져다 쓸 변수
     public static UIManager Instance
     {
         get
@@ -21,32 +51,9 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+    //}외부에서 사용할 때 가져다 쓸 변수
 
-
-
-    //{변수 설정
-    private Scene currentScene;
-    public TMP_Text ScoreText;
-    public Image[] lifeImage;
-    public GameObject gameOver;
-    private int score;
-    //}변수 설정
-
-    void Awake()
-    {
-        if (myInstance == null)
-        {
-            myInstance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        gameOver.SetActive(false);
-        
-        currentScene = SceneManager.GetActiveScene();
-    }
+    
     void Update()
     {
         // # UI Score 업데이트
